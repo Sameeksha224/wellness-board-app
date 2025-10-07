@@ -1,12 +1,21 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Profile = () => {
+  const navigate = useNavigate();
   const [age, setAge] = useState("");
   const [gender, setGender] = useState("");
   const [concern, setConcern] = useState("");
   const [weight, setWeight] = useState("");
   const [height, setHeight] = useState("");
   const [lifestyle, setLifestyle] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    navigate("/tips", {
+      state: { age, gender, concern, weight, height, lifestyle }
+    });
+  };
 
   return (
     <div className="max-w-2xl mx-auto px-4 py-8">
@@ -19,7 +28,7 @@ const Profile = () => {
       </p>
 
       {/* Form */}
-      <form className="space-y-4">
+      <form className="space-y-4" onSubmit={handleSubmit}>
         {/* Age */}
         <div>
           <label className="block text-sm font-medium">Age</label>
@@ -30,7 +39,6 @@ const Profile = () => {
             className="mt-1 block w-full border border-gray-300 rounded-lg p-2 text-sm-gray-700"
           />
         </div>
-
         {/* Gender */}
         <div>
           <label className="block text-sm font-medium">Gender</label>
@@ -39,7 +47,7 @@ const Profile = () => {
             onChange={(e) => setGender(e.target.value)}
             className="mt-1 block w-full border border-gray-300 rounded-lg p-2 text-gray-700"
           >
-            <option value="" className="">Select from dropdown</option>
+            <option value="" className="text-gray-700">Select from dropdown</option>
             <option>Male</option>
             <option>Female</option>
             <option>Other</option>
@@ -55,7 +63,7 @@ const Profile = () => {
             onChange={(e) => setConcern(e.target.value)}
             className="mt-1 block w-full border border-gray-300 rounded-lg p-2 text-gray-700"
           >
-            <option value=""className="text-gray-700">Select from dropdown</option>
+            <option value="" className="text-gray-700">Select from dropdown</option>
             <option value="physical">Physical Wellbeing</option>
             <option value="nutrition">Nutrition</option>
             <option value="mental">Mental Wellbeing</option>
@@ -118,3 +126,5 @@ const Profile = () => {
 };
 
 export default Profile;
+
+
