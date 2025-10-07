@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import TipCard from "../components/TipCard";
-import TipDetails from "./TipDetail";
+import TipDetails from "../components/TipDetail";
 import { getWellnessTips, detailedWellnessTips } from "../aiService";
 
 const Tips = () => {
