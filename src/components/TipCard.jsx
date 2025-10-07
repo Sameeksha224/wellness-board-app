@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import * as FaIcons from "react-icons/fa";
+import {FaSpa } from "react-icons/fa";
 
 const TipCard = ({ title, icon, description, isSaved = false,  onClick }) => {
   const [saved, setSaved] = useState(isSaved)
-  const IconComponent = FaIcons[icon] || FaIcons.FaSpa;
+  const IconComponent = icon || FaSpa;
   
   return (
     <div
