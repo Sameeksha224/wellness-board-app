@@ -1,7 +1,7 @@
 import OpenAI from "openai";
 
 const openai = new OpenAI({
-    apiKey: import.meta.env.VITE_OPENAI_KEY,
+    apiKey: import.meta.env.VITE_OPENAI_KEY || process.env.VITE_OPENAI_KEY,
     baseURL: "https://api.groq.com/openai/v1",
     dangerouslyAllowBrowser: true
 });

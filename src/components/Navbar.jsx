@@ -16,7 +16,7 @@ const Navbar = () =>{
                           to="/" 
                           className="text-blue-500 font-medium hover:text-blue-700"
                         >
-                          Profile
+                          Main Page
                         </Link>
                     </div>
                      <div>

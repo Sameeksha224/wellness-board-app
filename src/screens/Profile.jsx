@@ -9,9 +9,32 @@ const Profile = () => {
   const [weight, setWeight] = useState("");
   const [height, setHeight] = useState("");
   const [lifestyle, setLifestyle] = useState("");
+  const [error, setError] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    // Clear previous errors
+    setError("");
+
+    // Validate required fields only
+    if (!age.trim()) {
+      setError("Please enter your age");
+      alert("Please enter your age");
+      return;
+    }
+
+    if (!gender.trim()) {
+      setError("Please select your gender");
+      alert("Please select your gender");
+      return;
+    }
+
+    if (!concern.trim()) {
+      setError("Please select an area of focus");
+      alert("Please select an area of focus");
+      return;
+    }
     navigate("/tips", {
       state: { age, gender, concern, weight, height, lifestyle }
     });
